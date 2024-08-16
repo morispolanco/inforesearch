@@ -38,7 +38,7 @@ def get_research_grant_info(campo_estudio, tipo_ayuda, fecha_limite, solo_guatem
     serper_response = requests.post(
         "https://google.serper.dev/search",
         headers={
-            "X-API-KEY": SERPER_API_KEY,
+            "X-API-KEY": SERPER_API_KEY",
             "Content-Type": "application/json"
         },
         json={
@@ -46,7 +46,7 @@ def get_research_grant_info(campo_estudio, tipo_ayuda, fecha_limite, solo_guatem
         }
     )
 
-    search_results = serper_response.json().get("organic", [])[:3]  # Tomamos los primeros 3 resultados
+    search_results = serper_response.json().get("organic", [])  # Tomamos todos los resultados
 
     return ai_response, search_results
 
